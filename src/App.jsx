@@ -1,7 +1,9 @@
 
+// import { Heading } from 'lucide-react'
 import './App.css'
 import Logo from './components/Logo'
 import Navbar from './components/Navbar'
+import Heading from './components/Heading'
 
 function App() {
   
@@ -12,6 +14,9 @@ function App() {
       <Navbar></Navbar>
 
     </header>
+    <section>
+      <Heading><h1>Kitchen Room</h1></Heading>
+    </section>
       {/* <Logo></Logo> */}
     </>
   )
