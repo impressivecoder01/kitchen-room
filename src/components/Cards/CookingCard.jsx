@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CookingCard = ({orderr}) => {
-    console.log(orderr)
+const CookingCard = ({orderr,handleReadyItems}) => {
+    // console.log(orderr)
     return (
         <div
       className="rounded-xl p-5 shadow hover:shadow-lg"
       style={{
-        background: "linear-gradient(#ffffff90, #FCB700), url('/cook-bg.gif')",
+        background: "linear-gradient(#ffffff90, #FCB700), url('/assets/cook-bg.gif')",
       }}
     >
       {/* Title */}
@@ -25,7 +25,7 @@ const CookingCard = ({orderr}) => {
       </p>
 
       {/* Static Button */}
-      <button className="px-6 mt-3 py-1 shadow text-sm hover:bg-black hover:text-white bg-white cursor-pointer rounded-xl">
+      <button onClick={()=> handleReadyItems(orderr)} className="px-6 mt-3 py-1 shadow text-sm hover:bg-black hover:text-white bg-white cursor-pointer rounded-xl">
         Cooked?
       </button>
     </div>

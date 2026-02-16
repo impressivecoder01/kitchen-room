@@ -6,16 +6,36 @@ import CookingCard from './Cards/CookingCard';
 const OrderContainer = ({ promise }) => {
     const orders = use(promise)
     const [cookingItems, setCookingItems] = useState([])
+    const [readyItems, setReadyItems] = useState([])
+    const handleReadyItems =(ready)=> {
+        console.log(ready)
+        const newReady = [...readyItems, ready]
+        setReadyItems(newReady)
+
+        const remaining = cookingItems.filter(item => item.id !== ready.id)
+        console.log(remaining)
+        // setReadyItems(remaining) 
+        setCookingItems(remaining)
+    }
     const handleOrder = (order) => {
+        const isExist = cookingItems.find(item => item.id == order.id)
+        // console.log(isExist)
+        if(isExist){
+            alert('already there')
+            return
+        }
+        
+            const newCookingItems = [...cookingItems, order]
+            
+            setCookingItems(newCookingItems)
+        
         // console.log(order)
-        const newCookingItems = [...cookingItems, order]
-        setCookingItems(newCookingItems)
     }
     
     return (
         <div className=''>
 
-            <States cookingTotal = {cookingItems} order={orders}></States>
+            <States readyItems={readyItems} cookingTotal = {cookingItems} order={orders}></States>
             <section className='w-11/12 mx-auto py-10 grid grid-cols-1 lg:grid-cols-12'>
                 <div className=' lg:col-span-7'>
                     <h1 className='font-bold text-4xl'>Current Order</h1>
@@ -29,7 +49,7 @@ const OrderContainer = ({ promise }) => {
                     <h1>Cooking Now</h1>
                     <div className='shadow-2xl space-y-5 p-10'>
                         {
-                            cookingItems.map(orderr => <CookingCard key={orderr.id} orderr={orderr}></CookingCard>)
+                            cookingItems.map(orderr => <CookingCard key={orderr.id} orderr={orderr} handleReadyItems={handleReadyItems}></CookingCard>)
                         }
                     </div>
                 </div>
