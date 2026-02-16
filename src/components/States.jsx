@@ -1,7 +1,7 @@
 import { CookingPot, ScrollText, ShoppingBasket } from 'lucide-react';
 import React from 'react';
 
-const States = ({order}) => {
+const States = ({order, cookingTotal}) => {
     return (
         <div className='w-11/12 mx-auto py-10 grid grid-cols-1 lg:grid-cols-3 gap-2'>
             {/* total order */}
@@ -21,7 +21,7 @@ const States = ({order}) => {
                     
                     <div className="text-xl text-center">
                         Current Cooing
-                        <h2 className="text-6xl font-bold">{0}</h2>
+                        <h2 className="text-6xl font-bold">{cookingTotal.length}</h2>
                     </div>
                 </div>
             </div>

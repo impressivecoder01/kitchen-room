@@ -1,9 +1,9 @@
 import React from 'react';
 import { UtensilsCrossed } from "lucide-react";
 
-const Cards = ({order}) => {
+const Cards = ({order, handleOrder}) => {
   // Static data (mock order)
-  console.log(order)
+//   console.log(order)
 //   const order = {
 //     id: 1,
 //     order_no: 101,
@@ -12,9 +12,9 @@ const Cards = ({order}) => {
 //     special_instruction: "Extra spicy, no onions",
 //     table_no: 5,
 //   };
-
+    
   return (
-    <div className="p-5 rounded-xl shadow-xl relative space-y-3">
+    <div onClick={() => handleOrder(order)} className="p-5 rounded-xl shadow-xl relative space-y-3">
       {/* Order Number */}
       <p className="text-xs bg-amber-400 p-2 inline-block rounded-xl">
         #{order.order_no}
