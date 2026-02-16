@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import States from './States';
 import Cards from './Cards/Cards';
 import CookingCard from './Cards/CookingCard';
+import ReadyCard from './Cards/ReadyCard';
 
 const OrderContainer = ({ promise }) => {
     const orders = use(promise)
@@ -54,8 +55,11 @@ const OrderContainer = ({ promise }) => {
                     </div>
                 </div>
                 <div className=' lg:col-span-5 space-y-10'>
-                    <div className='shadow-2xl p-10'>
                     <h1>Order Ready</h1>
+                    <div className='shadow-2xl p-10 space-y-5'>
+                        {
+                            readyItems.map(ready => <ReadyCard ready={ready}></ReadyCard>)
+                        }
 
                     </div>
                 </div>
