@@ -3,9 +3,11 @@ import States from './States';
 import Cards from './Cards/Cards';
 import CookingCard from './Cards/CookingCard';
 import ReadyCard from './Cards/ReadyCard';
+import { toast } from 'react-toastify';
 
 const OrderContainer = ({ promise }) => {
-    const orders = use(promise)
+    const data = use(promise)
+    const [orders, setOrders] = useState(data)
     const [cookingItems, setCookingItems] = useState([])
     const [readyItems, setReadyItems] = useState([])
     const handleReadyItems =(ready)=> {
@@ -14,15 +16,18 @@ const OrderContainer = ({ promise }) => {
         setReadyItems(newReady)
 
         const remaining = cookingItems.filter(item => item.id !== ready.id)
-        console.log(remaining)
+        // console.log(remaining)
         // setReadyItems(remaining) 
         setCookingItems(remaining)
+        const finish = orders.filter(done=>done.id !==ready.id)
+        setOrders(finish)
     }
     const handleOrder = (order) => {
+        
         const isExist = cookingItems.find(item => item.id == order.id)
         // console.log(isExist)
         if(isExist){
-            alert('already there')
+            toast.success('Order Already on Processing')
             return
         }
         

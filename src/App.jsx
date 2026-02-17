@@ -7,6 +7,7 @@ import Heading from './components/Heading'
 import States from './components/States'
 import OrderContainer from './components/OrderContainer'
 import { Suspense } from 'react'
+import { ToastContainer } from 'react-toastify'
 const loadOrder =()=> fetch('/json/orders.json').then(res => res.json())
 function App() {
   const ordersPromise = loadOrder()
@@ -25,6 +26,7 @@ function App() {
       <OrderContainer promise ={ordersPromise}></OrderContainer>
       </Suspense>
     </section>
+    <ToastContainer></ToastContainer>
       
     </>
   )
