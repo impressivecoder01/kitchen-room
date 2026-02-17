@@ -20,7 +20,7 @@ const ReadyCard = ({ready}) => {
 
       {/* Cooking Time */}
       <p className="text-gray-600 mt-2">
-        <span className="font-semibold">Cooking Time:</span> {ready.cooked_At}
+        <span className="font-semibold">Cooking Time:{ready.cooked_At}</span>
       </p>
     </div>
     );

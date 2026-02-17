@@ -11,7 +11,7 @@ const OrderContainer = ({ promise }) => {
     const [cookingItems, setCookingItems] = useState([])
     const [readyItems, setReadyItems] = useState([])
     const handleReadyItems =(ready)=> {
-        console.log(ready)
+        ready.cooked_At = new Date().toLocaleTimeString()
         const newReady = [...readyItems, ready]
         setReadyItems(newReady)
 
